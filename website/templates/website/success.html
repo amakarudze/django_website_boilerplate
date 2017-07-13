@@ -1,0 +1,21 @@
+{% extends 'website/base.html' %}
+
+{% block content %}
+<!-- Page Heading/Breadcrumbs -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Success
+                    <small></small>
+                </h1>
+                <ol class="breadcrumb">
+                    <li class="link"><a href="{% url 'website:home' %}">Home</a>
+                    </li>
+                    <li class="active">Success</li>
+                </ol>
+            </div>
+        </div>
+        <!-- /.row -->
+    <h3>Message sent successfully! <i class="fa fa-check-square fa-2x"></i></h3>
+
+    <p>Our team will get back to you as soon as possible.</p>
+{% endblock %}
