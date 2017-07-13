@@ -21,7 +21,7 @@ class HomeView(TemplateView):
 
 
 class AboutView(TemplateView):
-    
+    # Renders the about page
     template_name = 'website/about.html'
 
     def get_context_data(self, **kwargs):
@@ -32,6 +32,7 @@ class AboutView(TemplateView):
 
 
 class ServicesView(TemplateView):
+    # Renders the services page
     template_name = 'website/services.html'
 
     def get_context_data(self, **kwargs):
@@ -42,6 +43,7 @@ class ServicesView(TemplateView):
 
 
 class SupportView(TemplateView):
+    # Renders the support page
     template_name = 'website/support.html'
 
     def get_context_data(self, **kwargs):
@@ -52,6 +54,7 @@ class SupportView(TemplateView):
 
 
 class ContactView(TemplateView):
+    # Renders the contact page
     contact_form = ContactForm()
     template_name = 'website/contact.html'
 
@@ -77,7 +80,7 @@ class ContactView(TemplateView):
                 # finally save the object in db
                 obj.save()
 
-                # send email to anna@anntele.com
+                # send email to test@test.com -- replace with intended recipient
                 subject = "Message on Contact Form "
                 message = 'A message was submitted on the website\n\n'
                 message += 'Name: ' + obj.name + '\n'
@@ -86,14 +89,15 @@ class ContactView(TemplateView):
                 message += 'Phone: ' + obj.phone + '\n'
                 message += 'Message:\n ' + obj.message + '\n'
 
-                sender = 'anntelebiz@gmail.com'
+                sender = 'user@test.com' # replace with configured email account in settings.py
 
-                recipient_list = ['anna@anntele.com']
+                recipient_list = ['test@test.com'] # replace with intenced recipient(s)
                 send_mail(subject, message, sender, recipient_list)
 
                 # send auto-response to email sender
                 recipient_list = [obj.email]
                 message = 'Thank you for the email you sent on our website. We will get back to you soon.'
+                # you can change the sender here if you have another email account configured in settings.py
                 send_mail(subject, message, sender, recipient_list)
 
                 # redirect to a new URL:
